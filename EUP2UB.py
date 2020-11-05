@@ -26,7 +26,8 @@ xref = {
 for line in fhand:
     line = line.rstrip()
     if line.startswith("[") : #find start of individual wardrobe and save/print name
-        wardrobeName = line
+        wardrobeName = line.strip('[]')
+        wardrobeDict = dict()
         #print(wardrobeName)
     
     if not line.startswith("[") : #for each prop, process into dict
@@ -39,9 +40,11 @@ for line in fhand:
             #print(numbersList)
             #print(wardrobeDict)
     
-    allWardrobes[wardrobeName] = wardrobeDict
+            allWardrobes[wardrobeName] = wardrobeDict
 
-#print(allWardrobes)
+# print(xref, "\n\n")
+# print(allWardrobes, "\n\n")
+
 #use dict.get to pull xref and create output 
 
 for wardrobe in allWardrobes :
@@ -52,5 +55,4 @@ for wardrobe in allWardrobes :
         output += "{0}=\"{1}\" ".format(xref.get(prop)[1], allWardrobes[wardrobe][prop][0])
 
         #print(allWardrobes[wardrobe][prop])
-    
-    print(output)
+        print(output)
