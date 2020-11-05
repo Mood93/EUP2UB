@@ -18,7 +18,7 @@ xref = {
 "Hat": ("prop_hats", "tex_hats"),
 "Glasses": ("prop_glasses", "tex_glasses"),
 "Ear": ("prop_ears", "tex_ears"),
-"Watches": ("prop_watches", "tex_watches"),
+"Watch": ("prop_watches", "tex_watches"),
 "Top": ("comp_shirt", "tex_shirt")
 }
 
@@ -30,13 +30,13 @@ for line in fhand:
         wardrobeDict = dict() #clear wardrobe on new wardrobe. otherwise wardrobes get overwritten
         #print(wardrobeName)
     
-    if not line.startswith("[") : #for each prop, process into dict
-        propValues = line.split("=")
-        #print(propValues)
-        if propValues[0] in xref :
-            #print(propValues[1])
-            numbersList = propValues[1].split(":")
-            wardrobeDict[propValues[0]] = (numbersList[0], numbersList[1])
+    if not line.startswith("[") : #for each comp, process into dict
+        compValues = line.split("=")
+        #print(compValues)
+        if compValues[0] in xref :
+            #print(compValues[1])
+            numbersList = compValues[1].split(":")
+            wardrobeDict[compValues[0]] = (numbersList[0], numbersList[1])
             #print(numbersList)
             #print(wardrobeDict)
     
@@ -51,17 +51,17 @@ for wardrobe in allWardrobes :
     print(wardrobe)
     #print(allWardrobes[wardrobe])
     output = "<Ped"
-    for prop in allWardrobes[wardrobe] :
-        propName = str(xref.get(prop)[0])
-        propValue = int(allWardrobes[wardrobe][prop][0])
-        textureName = str(xref.get(prop)[1])
+    for comp in allWardrobes[wardrobe] :
+        compName = str(xref.get(comp)[0])
+        compValue = int(allWardrobes[wardrobe][comp][0])
+        textureName = str(xref.get(comp)[1])
 
-        textureValue = int(allWardrobes[wardrobe][prop][1])
+        textureValue = int(allWardrobes[wardrobe][comp][1])
 
-        if propValue > 1 or textureValue > 1 :
-            output += " {0}=\"{1}\" {2}=\"{3}\"".format(propName, propValue, textureName, textureValue)
+        if compValue > 1 or textureValue > 1 :
+            output += " {0}=\"{1}\" {2}=\"{3}\"".format(compName, compValue, textureName, textureValue)
 
-        #print(allWardrobes[wardrobe][prop])
+        #print(allWardrobes[wardrobe][comp])
     output += ">INSERT PED NAME HERE</Ped>"
     print(output)
 
