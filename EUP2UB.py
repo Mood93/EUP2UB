@@ -27,7 +27,7 @@ for line in fhand:
     line = line.rstrip()
     if line.startswith("[") : #find start of individual wardrobe and save/print name
         wardrobeName = line.strip('[]')
-        wardrobeDict = dict()
+        wardrobeDict = dict() #clear wardrobe on new wardrobe. otherwise wardrobes get overwritten
         #print(wardrobeName)
     
     if not line.startswith("[") : #for each prop, process into dict
@@ -52,7 +52,14 @@ for wardrobe in allWardrobes :
     #print(allWardrobes[wardrobe])
     output = "<Ped "
     for prop in allWardrobes[wardrobe] :
-        output += "{0}=\"{1}\" ".format(xref.get(prop)[1], allWardrobes[wardrobe][prop][0])
+        propName = str(xref.get(prop)[1])
+        propValue = int(allWardrobes[wardrobe][prop][0])
+        textureName = str(xref.get(prop)[2])
+        textureValue = int(allWardrobes[wardrobe][prop][1])
+
+        if propValue > 1 or textureValue > 1 :
+            output += "{0}=\"{1}\" {2}=\"{3}\" ".format(propName, propValue, textureName, textureValue)
 
         #print(allWardrobes[wardrobe][prop])
-        print(output)
+
+    print(output)
