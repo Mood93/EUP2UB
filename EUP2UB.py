@@ -19,7 +19,14 @@ xref = {
 "Glasses": ("prop_glasses", "tex_glasses"),
 "Ear": ("prop_ears", "tex_ears"),
 "Watch": ("prop_watches", "tex_watches"),
-"Top": ("comp_shirt", "tex_shirt")
+"Top": ("comp_shirtoverlay", "tex_shirtoverlay"),
+"UpperSkin": ("comp_shirt", "tex_shirt"),
+"Decal": ("comp_decals", "tex_decals"),
+"UnderCoat": ("comp_accessories", "tex_accessories"),
+"Pants": ("comp_pants", "tex_pants"),
+"Shoes": ("comp_shoes", "tex_shoes"),
+"Accessories": ("comp_eyes", "tex_eyes"),
+"Armor": ("comp_tasks", "tex_tasks")
 }
 
 # consume wardrobe.ini
