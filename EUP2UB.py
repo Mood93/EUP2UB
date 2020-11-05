@@ -15,11 +15,11 @@ allWardrobes = dict()
 # xref of input keys to output keys
 xref = dict()
 xref = {
-"Hat": (0, "prop_hats", "tex_hats"),
-"Glasses": (1, "prop_glasses", "tex_glasses"),
-"Ear": (2, "prop_ears", "tex_ears"),
-"Watches": (3, "prop_watches", "tex_watches"),
-"Top": (4, "comp_shirt", "tex_shirt")
+"Hat": ("prop_hats", "tex_hats"),
+"Glasses": ("prop_glasses", "tex_glasses"),
+"Ear": ("prop_ears", "tex_ears"),
+"Watches": ("prop_watches", "tex_watches"),
+"Top": ("comp_shirt", "tex_shirt")
 }
 
 # consume wardrobe.ini
@@ -50,16 +50,18 @@ for line in fhand:
 for wardrobe in allWardrobes :
     print(wardrobe)
     #print(allWardrobes[wardrobe])
-    output = "<Ped "
+    output = "<Ped"
     for prop in allWardrobes[wardrobe] :
-        propName = str(xref.get(prop)[1])
+        propName = str(xref.get(prop)[0])
         propValue = int(allWardrobes[wardrobe][prop][0])
-        textureName = str(xref.get(prop)[2])
+        textureName = str(xref.get(prop)[1])
+
         textureValue = int(allWardrobes[wardrobe][prop][1])
 
         if propValue > 1 or textureValue > 1 :
-            output += "{0}=\"{1}\" {2}=\"{3}\" ".format(propName, propValue, textureName, textureValue)
+            output += " {0}=\"{1}\" {2}=\"{3}\"".format(propName, propValue, textureName, textureValue)
 
         #print(allWardrobes[wardrobe][prop])
-
+    output += ">INSERT PED NAME HERE</Ped>"
     print(output)
+
