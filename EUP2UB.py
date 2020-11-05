@@ -41,5 +41,16 @@ for line in fhand:
     
     allWardrobes[wardrobeName] = wardrobeDict
 
-print(allWardrobes)
+#print(allWardrobes)
 #use dict.get to pull xref and create output 
+
+for wardrobe in allWardrobes :
+    print(wardrobe)
+    #print(allWardrobes[wardrobe])
+    output = "<Ped "
+    for prop in allWardrobes[wardrobe] :
+        output += "{0}=\"{1}\" ".format(xref.get(prop)[1], allWardrobes[wardrobe][prop][0])
+
+        #print(allWardrobes[wardrobe][prop])
+    
+    print(output)
