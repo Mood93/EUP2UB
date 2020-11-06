@@ -54,6 +54,7 @@ for line in fhand:
 
 #use dict.get to pull xref and create output 
 
+
 for wardrobe in allWardrobes :
     print(wardrobe)
     #print(allWardrobes[wardrobe])
@@ -73,3 +74,5 @@ for wardrobe in allWardrobes :
         #print(allWardrobes[wardrobe][comp])
     output += ">INSERT PED NAME HERE</Ped>"
     print(output, "\n")
+
+    #### add feature to insert ped name or default to MP_F_FREEMODE_01
