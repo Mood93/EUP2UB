@@ -65,10 +65,11 @@ for wardrobe in allWardrobes :
 
         textureValue = int(allWardrobes[wardrobe][comp][1])
 
-        if compValue > 1 or textureValue > 1 :
-            output += " {0}=\"{1}\" {2}=\"{3}\"".format(compName, compValue, textureName, textureValue)
+        if compValue > 1 or textureValue > 1 : #if the comp is not default or has a nondefault texture : print comp
+            output += " {0}=\"{1}\"".format(compName, compValue)
+            if textureValue > 1 : #if texture is not default : print texture
+                output += " {0}=\"{1}\"".format(textureName, textureValue)
 
         #print(allWardrobes[wardrobe][comp])
     output += ">INSERT PED NAME HERE</Ped>"
-    print(output)
-
+    print(output, "\n")
