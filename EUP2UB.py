@@ -90,5 +90,3 @@ for wardrobe in allWardrobes :
 
     output += ">{}</Ped>".format(pedName)
     print(output, "\n")
-
-    #### add feature to insert ped name or default to MP_F_FREEMODE_01
