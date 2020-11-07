@@ -1,11 +1,17 @@
-# file handling
-#fname = input("Enter file name: ")
-#if len(fname) < 1 : fname = "wardrobe.ini"
+# input file handling
 fname = "wardrobe.ini"
 try:
-    fhand = open(fname)
+    inHand = open(fname, 'r')
 except:
     print('File cannot be opened:', fname)
+    exit()
+
+# output file handling
+outputName = "UB_ped_xml.txt"
+try:
+    outHand = open(outputName, 'w')
+except:
+    print('File cannot be opened:', outputName)
     exit()
 
 #vars
@@ -32,7 +38,7 @@ xref = {
 }
 
 # consume wardrobe.ini
-for line in fhand:
+for line in inHand:
     line = line.rstrip()
     if line.startswith("[") : #find start of individual wardrobe and save/print name
         wardrobeName = line.strip('[]')
@@ -63,7 +69,8 @@ for line in fhand:
 #use dict.get to pull xref and create output 
 #loop through data structure and output 
 for wardrobe in allWardrobes :
-    print(wardrobe)
+    #print(wardrobe)
+    outHand.write(wardrobe + "\n")
     #print(allWardrobes[wardrobe])
     output = "<Ped"
     for comp in allWardrobes[wardrobe] :
@@ -88,5 +95,9 @@ for wardrobe in allWardrobes :
 
         #print(allWardrobes[wardrobe][comp])
 
-    output += ">{}</Ped>".format(pedName)
-    print(output, "\n")
+    output += ">{}</Ped>\n\n".format(pedName)
+    #print(output)
+    outHand.write(output)
+
+inHand.close()
+outHand.close()
