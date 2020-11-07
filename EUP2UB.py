@@ -1,3 +1,14 @@
+# from distutils.core import setup
+# setup(name="EUP2UB",
+#       version="0.1.0",
+#       description="Python script to convert EUP wardrobes to Ulitimate Backup XML peds. This is for the LSPDFR mod for GTAV.",
+#       long_description="README.md",
+#       long_description_content_type="text/markdown",
+#       url="https://github.com/Mood93/EUP2UB",
+#       author="Mood93",
+#       license="GNU GPL v3.0"
+#       )
+
 # input file handling
 fname = "wardrobe.ini"
 try:
