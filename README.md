@@ -8,3 +8,5 @@ You have two options to run this program. Option 2 is easier.
 Detailed tutorial coming soon.
 
 You can find the latest release on the right under 'Releases'
+
+I am a beginner dev, I will be making this program more Pythonic as time allows.
