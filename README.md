@@ -11,4 +11,4 @@ You can find the latest release on the right under 'Releases'
 
 I am a beginner dev, I will be making this program more Pythonic as time allows.
 
-![input_outpu_screenshot](https://raw.githubusercontent.com/Mood93/EUP2UB/main/Screenshot.png)
+![input_output_screenshot](https://raw.githubusercontent.com/Mood93/EUP2UB/main/Screenshot.png)
